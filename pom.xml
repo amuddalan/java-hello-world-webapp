@@ -4,7 +4,7 @@
   <groupId>org.cloudifysource.examples</groupId>
   <artifactId>java-hello-world-webapp</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>java-hello-world-webapp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -16,6 +16,37 @@
     </dependency>
   </dependencies>
   <build>
+
     <finalName>java-hello-world</finalName>
+
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+
+       <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.1</version>
+			</plugin>
+     </plugins>
+    </pluginManagement>
+
+
   </build>
+
+
+  <distributionManagement>
+ <repository>
+  <id>nexus-releases</id>
+  <name>anil nexus</name>
+  <url>http://ip172-18-0-12-bko7f22pr3f000c403q0-8081.direct.labs.play-with-k8s.com/repository/maven-releases/</url>
+ </repository>
+</distributionManagement>
+
+
+
 </project>
